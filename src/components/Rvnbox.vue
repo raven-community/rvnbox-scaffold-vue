@@ -10,12 +10,12 @@
       <h3>BIP44 Account</h3>
       <p>
         <code>
-        "m/0'/175'/0'"
+        "m/44'/175'/0'"
         </code>
       </p>
       <h3>BIP44 external change addresses</h3>
       <ul>
-        <li v-for="(address, index) in addresses" :key="index">m/40&rsquo;/175&rsquo;/0&rsquo;/0/{{index}}:{{address}}</li>
+        <li v-for="(address, index) in addresses" :key="index">m/44&rsquo;/175&rsquo;/0&rsquo;/0/{{index}}:{{address}}</li>
       </ul>
       <h3>Transaction raw hex</h3>
       <p>{{hex}}</p>
@@ -50,7 +50,7 @@ let rootSeed = RVNBOX.Mnemonic.toSeed(mnemonic)
 let masterHDNode = RVNBOX.HDNode.fromSeed(rootSeed, 'ravencoin')
 
 // HDNode of BIP44 account
-let account = RVNBOX.HDNode.derivePath(masterHDNode, "m/0'/175'/0'")
+let account = RVNBOX.HDNode.derivePath(masterHDNode, "m/44'/175'/0'")
 
 // derive the first external change address HDNode which is going to spend utxo
 let change = RVNBOX.HDNode.derivePath(account, '0/0')
@@ -69,8 +69,8 @@ RVNBOX.Address.utxo(LegacyAddress).then(
 
     // instance of transaction builder
     let transactionBuilder = new RVNBOX.TransactionBuilder('ravencoin')
-    // original amount of corbes in vin
-    let originalAmount = result[0].corbes
+    // original amount of satoshis in vin
+    let originalAmount = result[0].satoshis
 
     // index of vout
     let vout = result[0].vout
@@ -126,7 +126,7 @@ RVNBOX.Address.utxo(LegacyAddress).then(
 
 let addresses = []
 for (let i = 0; i < 10; i++) {
-  let childNode = masterHDNode.derivePath(`m/0'/175'/0'/0/${i}`)
+  let childNode = masterHDNode.derivePath(`m/44'/175'/0'/0/${i}`)
   addresses.push(RVNBOX.HDNode.toLegacyAddress(childNode))
 }
 
