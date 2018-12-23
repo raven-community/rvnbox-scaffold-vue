@@ -1,5 +1,5 @@
 <template>
-  <Bitbox/>
+  <Rvnbox/>
 </template>
 
 <script>
