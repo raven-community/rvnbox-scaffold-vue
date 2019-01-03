@@ -1,6 +1,6 @@
 {
   "name": "rvnbox-scaffold-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "description": "Basic vuejs app w/ RVNBOX bindings",
   "author": "MSFTserver",
@@ -12,7 +12,7 @@
     "coverage:report": "nyc --reporter=html mocha --require babel-core/register --timeout 5000"
   },
   "dependencies": {
-    "rvnbox-sdk": "github:raven-community/rvnbox-javascript-sdk#master",
+    "rvnbox-sdk": "^1.0.2",
     "mocha": "^5.2.0",
     "vue": "^2.5.2"
   },
