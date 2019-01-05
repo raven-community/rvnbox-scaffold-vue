@@ -27,6 +27,8 @@
 let RVNBOXSDK = require('rvnbox-sdk/lib/rvnbox-sdk').default
 let RVNBOX = new RVNBOXSDK()
 
+let network = "testnet";
+
 let langs = [
   'english',
   'chinese_simplified',
@@ -47,7 +49,7 @@ let mnemonic = RVNBOX.Mnemonic.generate(256, RVNBOX.Mnemonic.wordLists()[lang])
 let rootSeed = RVNBOX.Mnemonic.toSeed(mnemonic)
 
 // master HDNode
-let masterHDNode = RVNBOX.HDNode.fromSeed(rootSeed, 'testnet')
+let masterHDNode = RVNBOX.HDNode.fromSeed(rootSeed, network)
 
 // HDNode of BIP44 account
 let account = RVNBOX.HDNode.derivePath(masterHDNode, "m/44'/175'/0'")
@@ -68,7 +70,7 @@ RVNBOX.Address.utxo(LegacyAddress).then(
     }
 
     // instance of transaction builder
-    let transactionBuilder = new RVNBOX.TransactionBuilder('testnet')
+    let transactionBuilder = new RVNBOX.TransactionBuilder(network)
     // original amount of satoshis in vin
     let originalAmount = result[0].satoshis
 
