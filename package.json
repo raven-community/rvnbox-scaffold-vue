@@ -12,7 +12,7 @@
     "coverage:report": "nyc --reporter=html mocha --require babel-core/register --timeout 5000"
   },
   "dependencies": {
-    "rvnbox-sdk": "^1.0.3",
+    "rvnbox-sdk": "^1.0.4",
     "mocha": "^5.2.0",
     "vue": "^2.5.2"
   },
